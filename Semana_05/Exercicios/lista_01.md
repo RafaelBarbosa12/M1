@@ -23,13 +23,18 @@ print(a)
 
 Escolha a opção que responde corretamente:
 
-a) Imprime os números pares de 1 a 10.
+**a) Imprime os números pares de 1 a 10.**
 
 b) Imprime os números ímpares de 1 a 10.
 
-c) Imprime os números pares de 2 a 10.
+**c) Imprime os números pares de 2 a 10.**
 
 d) Imprime os números ímpares de 2 a 10.
+
+O número começa em 1 e é somado de um a um até chegar em 10 (determinado pelo while), a condição pega todos os números que possuem resto da divisão por 2 igual a 0, ou seja, todos os pares começando do 1 e indo até o 10.
+
+Essa questão tem duas alternativas corretas já que vão ser impressos os números pares de 1 a 10 (já que o um não é par, ele não será impresso, mas continua sendo os números pares de 1 a 10) e os números de 2 a 10, mas dessa vez, o 2 já está incluído.
+
 
 ______
 
@@ -39,13 +44,15 @@ ______
 
 No lugar onde está escrito “// linha” qual das opções abaixo deve estar para funcionar corretamente o código?
 
-A) let carro = new Carro("Toyota");
+**A) let carro = new Carro("Toyota");**
 
 B) let ligar = new ligar("Toyota");
 
 C) class Moto extends Veiculo {};
 
 D) carro1.ligar();
+
+Falta criar uma variavel que instancie a classe Carro
 
 ______
 
@@ -55,7 +62,7 @@ ______
 
 Escolha a opção que responde corretamente:
 
-A) 18
+**A) 18**
 
 B) 16
 
@@ -63,11 +70,12 @@ C) 14
 
 D) 12
 
+O I começa em 10 e diminui de 2 em 2, resultado += 10 é igual a 10, resultado+= 8 é igual a 18, agora o i vai passar pelo 6 e dar break, ou seja, o codigo será finalizado.
 ______
 
 **4)** Como você criaria um método `acelerar()` em uma classe `Carro`, que recebe um parâmetro `velocidade` e o adiciona a um atributo `velocidadeAtual`?
 
-A) ![Uma imagem](assets/ex04_1.PNG)
+**A) ![Uma imagem](assets/ex04_1.PNG)**
 
 B) ![Uma imagem](assets/ex04_2.PNG)
 
@@ -75,11 +83,13 @@ C) ![Uma imagem](assets/ex04_3.PNG)
 
 D) ![Uma imagem](assets/ex04_4.PNG)
 
+você precisa ter um construtor que inicializa o velocidadeAtual, apenas uma das alternativas faz isso.
+
 ______
 
 **5)** Qual a forma correta de definir uma classe Carro em JavaScript, com um método ligar() e um atributo marca?
 
-A) ![Uma imagem](assets/ex05_1.PNG)
+**A) ![Uma imagem](assets/ex05_1.PNG)**
 
 B) ![Uma imagem](assets/ex05_2.PNG)
 
@@ -87,6 +97,7 @@ C) ![Uma imagem](assets/ex05_3.PNG)
 
 D) ![Uma imagem](assets/ex05_4.PNG)
 
+você precisa ter um constructor para a marca e um metódo para o ligar
 ______
 
 **6)** Observe o código abaixo:
@@ -95,13 +106,15 @@ ______
 
 Qual será a saída do código acima?
 
-A) "Olá, meu nome é João. Olá, meu nome é Maria."
+**A) "Olá, meu nome é João. Olá, meu nome é Maria."**
 
 B) "Olá, meu nome é ."
 
 C) "João Maria"
 
 D) "undefined undefined"
+
+O console.log chama duas vezes a função greet, uma para cada nome, tendo a saída: "Olá, meu nome é João. Olá, meu nome é Maria."
 
 ______
 
@@ -120,6 +133,23 @@ Criando e manipulando Animais:
 
 Dica: Utilize `console.log()` para exibir as informações!
 
+```
+class Animal{
+    constructor(nome, idade){
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+descrever(){
+    console.log("Meu nome é " + this.nome + " e tenho ", this.idade + " anos");
+}
+}
+var cachorro = new Animal("Leo pelé", 5)
+var gato = new Animal("Veggeti", 6)
+
+cachorro.descrever()
+gato.descrever()
+```
 ______
 
 **8)** Nos últimos dias tivemos a oportunidade de ter contato com Programação Orientada a Objetos, e tivemos contato com o tema "herança". Herança é um princípio de orientação a objetos, que permite que classes compartilhem atributos e métodos. Ela é usada na intenção de reaproveitar código ou comportamento generalizado ou especializar operações ou atributos. Então vamos praticar esse conteúdo nessa questão.
@@ -145,6 +175,39 @@ Chamando os Métodos:
 
 Dica: Utilize console.log() para exibir as informações!
 
+```
+class Animal{
+    constructor(nome, idade){
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+descrever(){
+    console.log("Meu nome é " + this.nome + " e tenho ", this.idade + " anos");
+}
+}
+
+class Gato extends Animal{
+    constructor(nome, idade, cor){
+        super(nome, idade);
+        this.cor = cor
+    }
+    miar(){
+        console.log("miauu")
+    }
+    descrever(){
+        console.log("Meu nome é " + this.nome + ", tenho ", this.idade + " anos e minha cor é ", this.cor);
+    }
+}
+var gato = new Animal("Pantera", 15)
+var cachorro = new Animal("Hulk", 12);
+var gatinho = new Gato("Neve", 2, "branco")
+gato.descrever()
+gatinho.descrever()
+gatinho.miar()
+cachorro.descrever()
+```
+
 
 ______
 
@@ -167,6 +230,29 @@ Chamando o Método para Ver o Total:
 
 Dica: Utilize console.log() para exibir as informações!
 
+```
+//cria a classe somador
+class SomadorDeNotas{
+    constructor(){
+        this.total = 0
+    }
+
+    somarNota(nota){
+        this.total += nota
+        return this.total;
+    }
+    verTotal(){
+        console.log(this.total)
+    }
+
+}
+var somador = new SomadorDeNotas()
+somador.somarNota(10)
+somador.somarNota(9)
+somador.somarNota(8)
+somador.verTotal()
+```
+
 
 ______
 
@@ -188,3 +274,61 @@ Agora, sua tarefa é escrever um código em JavaScript que crie as classes Funci
 - Para cada objeto, chame o método calcularSalario() e mostre o salário calculado no console.
 
 Certifique-se de explicar cada parte do código utilizando comentários, explicando para que serve cada atributo e método, bem como a lógica por trás do cálculo de salário para o tipo de funcionário Professor.
+
+```
+//classe Funcionario é criada
+
+class Funcionario{
+
+    //Inicialização do constructor para iniciar os valores das propriedades que serão usadas
+
+    constructor(nome, idade, salarioBase){
+        this.nome = nome;
+        this.idade = idade;
+        this.salarioBase = salarioBase;
+    }
+    calcularSalario(){
+    }
+}
+
+//A classe Professor herda todas as caracteristicas de Funcionario
+
+class Professor extends Funcionario{
+
+    //inicia os valores
+
+    constructor(nome, idade, salarioBase, disciplina, horasSemanais){
+
+    //herda as referências da classe principal
+
+        super(nome, idade, salarioBase);
+
+    //referencáa as novas variáveis
+
+        this.disciplina = disciplina;
+        this.horasSemanais = horasSemanais;
+    }
+    //função para calcular salário
+
+    calcularSalario(){
+
+        //O salário é dado pela multiplicação de seu salario base pelas horas semanais
+
+        //o salário base é dado por hora
+        return(this.salarioBase * this.horasSemanais)
+    }
+}
+//cria as novas instâncias de Professor
+
+var professor1 = new Professor("Carlos", 35, 15, "matematica", 24)
+var professor2 = new Professor("Luisa", 32, 17, "fisíca", 20)
+var professor3 = new Professor("Giovana", 24, 16, "UX", 28)
+var professor4 = new Professor("Lucas", 54, 19, "ingês", 16)
+
+//printa quanto cada professor ganha por semana
+
+console.log(professor1.nome, " ganha ", professor1.calcularSalario() + " reais por semana")
+console.log(professor2.nome, " ganha ", professor2.calcularSalario() + " reais por semana")
+console.log(professor3.nome, " ganha ", professor3.calcularSalario() + " reais por semana")
+console.log(professor4.nome, " ganha ", professor4.calcularSalario() + " reais por semana")
+```
